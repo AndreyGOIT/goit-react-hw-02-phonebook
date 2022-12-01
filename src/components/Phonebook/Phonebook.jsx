@@ -8,18 +8,22 @@ class Phonebook extends Component {
   state = {
     contacts: [],
     name: '',
+    number: '',
   };
 
-  handleInputChange = event => {
-    this.setState({ name: event.currentTarget.value });
+  handleChange = event => {
+    const { name, value } = event.currentTarget;
+    this.setState({
+      [name]: value,
+    });
   };
 
   render() {
     return (
       <section>
         <span className={styles.sectionTitle}>Phonebook</span>
-        <form>
-          <label htmlFor="" className={styles.phoneBookWindow}>
+        <form className={styles.phoneBookWindow}>
+          <label htmlFor="">
             Name
             <input
               type="text"
@@ -28,10 +32,22 @@ class Phonebook extends Component {
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
               value={this.state.name}
-              onChange={this.handleInputChange}
+              onChange={this.handleChange}
             />
-            <button type="button">Add contact</button>
           </label>
+          <label htmlFor="">
+            Number
+            <input
+              type="tel"
+              name="number"
+              pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
+              value={this.state.number}
+              onChange={this.handleChange}
+            />
+          </label>
+          <button type="button">Add contact</button>
         </form>
       </section>
     );
