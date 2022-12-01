@@ -10,21 +10,29 @@ class Phonebook extends Component {
     name: '',
   };
 
+  handleInputChange = event => {
+    this.setState({ name: event.currentTarget.value });
+  };
+
   render() {
     return (
       <section>
         <span className={styles.sectionTitle}>Phonebook</span>
-        <div className={styles.phoneBookWindow}>
-          <p className={styles.phoneBookWindow__title}>Name</p>
-          <input
-            type="text"
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-          />
-          <button type="button">Add contact</button>
-        </div>
+        <form>
+          <label htmlFor="" className={styles.phoneBookWindow}>
+            Name
+            <input
+              type="text"
+              name="name"
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
+              value={this.state.name}
+              onChange={this.handleInputChange}
+            />
+            <button type="button">Add contact</button>
+          </label>
+        </form>
       </section>
     );
   }
