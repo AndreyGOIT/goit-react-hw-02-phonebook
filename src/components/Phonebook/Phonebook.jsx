@@ -17,12 +17,16 @@ class Phonebook extends Component {
       [name]: value,
     });
   };
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.state);
+  };
 
   render() {
     return (
       <section>
         <span className={styles.sectionTitle}>Phonebook</span>
-        <form className={styles.phoneBookWindow}>
+        <form className={styles.phoneBookWindow} onSubmit={this.handleSubmit}>
           <label htmlFor="">
             Name
             <input
@@ -47,7 +51,7 @@ class Phonebook extends Component {
               onChange={this.handleChange}
             />
           </label>
-          <button type="button">Add contact</button>
+          <button type="submit">Add contact</button>
         </form>
       </section>
     );
