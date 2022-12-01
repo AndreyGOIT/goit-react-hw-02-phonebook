@@ -10,11 +10,15 @@ class Phonebook extends Component {
     contacts: [],
   };
 
+  formSubmitHandler = data => {
+    console.log(data);
+  };
+
   render() {
     return (
       <section>
         <span className={styles.sectionTitle}>Phonebook</span>
-        <Form />
+        <Form onSubmit={this.formSubmitHandler} />
       </section>
     );
   }
