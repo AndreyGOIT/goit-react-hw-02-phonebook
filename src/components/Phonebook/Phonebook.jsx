@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import styles from './Phonebook.module.css';
 import Form from './Form';
-// import { nanoid } from 'nanoid';
-// model.id = nanoid(); //=> "V1StGXR8_Z5jdHi6B-myT"
 
 class Phonebook extends Component {
   state = {

@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import styles from './Phonebook.module.css';
+import { nanoid } from 'nanoid';
 
 class Form extends Component {
   state = {
     name: '',
     number: '',
   };
+
+  nameInputId = nanoid(); //=> "V1StGXR8_Z5jdHi6B-myT"
+  numberInputId = nanoid();
+
   handleChange = event => {
     const { name, value } = event.currentTarget;
     this.setState({
@@ -25,8 +30,8 @@ class Form extends Component {
   render() {
     return (
       <form className={styles.phoneBookWindow} onSubmit={this.handleSubmit}>
-        <label htmlFor="">
-          Name
+        <label htmlFor={this.nameInputId}>
+          Name<br></br>
           <input
             type="text"
             name="name"
@@ -35,10 +40,11 @@ class Form extends Component {
             required
             value={this.state.name}
             onChange={this.handleChange}
+            id={this.nameInputId}
           />
         </label>
-        <label htmlFor="">
-          Number
+        <label htmlFor={this.numberInputId}>
+          Number<br></br>
           <input
             type="tel"
             name="number"
@@ -47,6 +53,7 @@ class Form extends Component {
             required
             value={this.state.number}
             onChange={this.handleChange}
+            id={this.numberInputId}
           />
         </label>
         <button type="submit">Add contact</button>
