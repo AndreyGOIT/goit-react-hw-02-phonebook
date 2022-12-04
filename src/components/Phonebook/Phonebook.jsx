@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import styles from './Phonebook.module.css';
 import Form from './Form';
+import ContactsList from 'components/ContactsList/ContactsList';
 
 class Phonebook extends Component {
   state = {
@@ -18,6 +19,7 @@ class Phonebook extends Component {
   render() {
     const contacts = this.state.contacts;
     console.log(contacts);
+    console.log(contacts.length);
     // const elements = contacts.map(({ name, number, id }) => <li id={id}>{name} {number}</li>);
     return (
       <>
@@ -25,9 +27,16 @@ class Phonebook extends Component {
           <span className={styles.sectionTitle}>Phonebook</span>
           <Form onSubmit={this.formSubmitHandler} />
         </section>
-        <section>
-          <span className={styles.sectionTitle}>Contacts</span>
-        </section>
+        {contacts.length !== 0 ? (
+          <section>
+            <span className={styles.sectionTitle}>Contacts</span>
+            <ContactsList />
+          </section>
+        ) : (
+          <section>
+            <span className={styles.sectionTitle}>No Contacts</span>
+          </section>
+        )}
       </>
     );
   }
