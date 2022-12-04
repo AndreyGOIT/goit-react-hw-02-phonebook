@@ -1,5 +1,6 @@
 // Отделяйте именованные импорты, это повышает читаемость кода
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Phonebook.module.css';
 import Form from './Form';
 import ContactsList from 'components/ContactsList/ContactsList';
@@ -43,3 +44,7 @@ class Phonebook extends Component {
 }
 
 export default Phonebook;
+
+Phonebook.prototypes = {
+  state: PropTypes.shape({ contacts: PropTypes.arrayOf }),
+};

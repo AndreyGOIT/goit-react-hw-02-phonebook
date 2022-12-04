@@ -6,11 +6,15 @@ class ContactsList extends Component {
     name: '',
     number: '',
   };
-
   render() {
+    console.log(this.state.contacts);
     return (
       <ul>
-        <li>{this.state.contacts}</li>
+        {/* {this.state.contacts.map({ name, number, id }) => {
+                return (
+            <li key={id}>{name}: {number}</li>
+                );
+        }} */}
       </ul>
     );
   }
