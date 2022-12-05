@@ -7,14 +7,17 @@ class ContactsList extends Component {
     number: '',
   };
   render() {
-    console.log(this.state.contacts);
+    const contacts = this.props.contacts;
+
     return (
       <ul>
-        {/* {this.state.contacts.map({ name, number, id }) => {
-                return (
-            <li key={id}>{name}: {number}</li>
-                );
-        }} */}
+        {contacts.map(contact => {
+          return (
+            <li key={contact.id}>
+              {contact.name}: {contact.number}
+            </li>
+          );
+        })}
       </ul>
     );
   }

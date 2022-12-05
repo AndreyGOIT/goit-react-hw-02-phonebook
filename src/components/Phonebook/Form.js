@@ -20,7 +20,7 @@ class Form extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     this.props.onSubmit(this.state);
     this.reset();
   };

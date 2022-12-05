@@ -11,17 +11,13 @@ class Phonebook extends Component {
   };
 
   formSubmitHandler = data => {
-    console.log(data);
+    // console.log(data);
     this.setState(({ contacts }) => contacts.push(data));
-    // console.log(this.state);
-    // console.log(this.state.contacts);
   };
 
   render() {
     const contacts = this.state.contacts;
-    console.log(contacts);
-    console.log(contacts.length);
-    // const elements = contacts.map(({ name, number, id }) => <li id={id}>{name} {number}</li>);
+
     return (
       <>
         <section>
@@ -31,7 +27,7 @@ class Phonebook extends Component {
         {contacts.length !== 0 ? (
           <section>
             <span className={styles.sectionTitle}>Contacts</span>
-            <ContactsList />
+            <ContactsList contacts={contacts} />
           </section>
         ) : (
           <section>
