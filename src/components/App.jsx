@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { ContactsList } from './ContactsList/ContactsList';
-import Form from './Phonebook/Form';
+import Form from './Form/Form';
 
 export class App extends Component {
   state = {

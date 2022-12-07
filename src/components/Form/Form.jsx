@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './Phonebook.module.css';
+import styles from './Form.module.css';
 import { nanoid } from 'nanoid';
 
 class Form extends Component {
