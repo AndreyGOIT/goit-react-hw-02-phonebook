@@ -5,8 +5,8 @@ import Form from './Form/Form';
 export class App extends Component {
   state = {
     contacts: [],
-    name: '',
-    number: '',
+    // name: '',
+    // number: '',
   };
 
   formSubmitHandler = data => {
@@ -16,9 +16,10 @@ export class App extends Component {
 
   render() {
     const contactsQuantity = this.state.contacts.length;
+    console.log(contactsQuantity);
     return (
       <>
-        <Form />
+        <Form options={this.state} />
         {contactsQuantity > 0 ? (
           <ContactsList contacts={this.state.contacts} />
         ) : (
