@@ -19,7 +19,7 @@ export class App extends Component {
     console.log(contactsQuantity);
     return (
       <>
-        <Form options={this.state} />
+        <Form options={this.state} onSubmit={this.formSubmitHandler} />
         {contactsQuantity > 0 ? (
           <ContactsList contacts={this.state.contacts} />
         ) : (
