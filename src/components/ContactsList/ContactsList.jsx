@@ -4,7 +4,7 @@ import styles from './ContactsList.module.css';
 export const ContactsList = ({ contacts }) => {
   return (
     <section className={styles.section}>
-      <p className={styles.sectionTitle}>Contacts</p>
+      {/* <p className={styles.sectionTitle}>Contacts</p> */}
 
       <ul>
         {contacts.map(contact => {

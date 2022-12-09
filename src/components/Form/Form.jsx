@@ -31,7 +31,7 @@ class Form extends Component {
   render() {
     return (
       <section className={styles.section}>
-        <p className={styles.sectionTitle}>Phonebook</p>
+        {/* <p className={styles.sectionTitle}>Phonebook</p> */}
         <form className={styles.phoneBookWindow} onSubmit={this.handleSubmit}>
           <label htmlFor={this.nameInputId}>
             Name<br></br>
