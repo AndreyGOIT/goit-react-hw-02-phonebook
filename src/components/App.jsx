@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { ContactsList } from './ContactsList/ContactsList';
 import Form from './Form/Form';
+import Filter from './Filter/Filter';
 
 export class App extends Component {
   state = {
@@ -20,12 +21,19 @@ export class App extends Component {
     this.setState(({ contacts }) => contacts.push(data));
   };
 
+  changeFilter = e => {
+    this.setState({ filter: e.target.value });
+    console.log(this.state.filter);
+  };
+
   render() {
     const contactsQuantity = this.state.contacts.length;
     console.log(contactsQuantity);
+    const { filter } = this.state;
     return (
       <>
         <Form options={this.state} onSubmit={this.formSubmitHandler} />
+        <Filter value={filter} onChange={this.changeFilter} />
         {contactsQuantity > 0 ? (
           <ContactsList contacts={this.state.contacts} />
         ) : (

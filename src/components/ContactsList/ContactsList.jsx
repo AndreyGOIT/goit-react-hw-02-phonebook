@@ -6,8 +6,6 @@ export const ContactsList = ({ contacts }) => {
     <section className={styles.section}>
       <p className={styles.sectionTitle}>Contacts</p>
 
-      <p>Find contacts by name</p>
-      <input type="text" />
       <ul>
         {contacts.map(contact => {
           return (
