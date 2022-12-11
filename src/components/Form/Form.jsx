@@ -12,10 +12,10 @@ class Form extends Component {
   numberInputId = nanoid();
 
   handleChange = event => {
-    const { name, value, id } = event.currentTarget;
+    const { name, value } = event.currentTarget;
     this.setState({
       [name]: value,
-      id: id,
+      id: nanoid(),
     });
   };
   handleSubmit = event => {

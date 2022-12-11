@@ -1,5 +1,5 @@
-// import { Component } from 'react';
 import styles from './ContactsList.module.css';
+import PropTypes from 'prop-types';
 
 export const ContactsList = ({ contacts, deleteContact }) => {
   return (
@@ -8,7 +8,7 @@ export const ContactsList = ({ contacts, deleteContact }) => {
         {contacts.map(contact => {
           return (
             <li key={contact.id}>
-              {contact.name}: {contact.number}
+              {contact.name}: {contact.number}{' '}
               <button onClick={() => deleteContact(contact.id)}>Delete</button>
             </li>
           );
@@ -17,29 +17,8 @@ export const ContactsList = ({ contacts, deleteContact }) => {
     </section>
   );
 };
-// class ContactsList extends Component {
-//   state = {
-//     contacts: [],
-//     name: '',
-//     number: '',
-//   };
-//   render() {
-//     const contacts = this.props.contacts;
 
-//     return (
-//       <section className={styles.section}>
-//         <p className={styles.sectionTitle}>Contacts</p>
-//         <ul>
-//           {contacts.map(contact => {
-//             return (
-//               <li key={contact.id}>
-//                 {contact.name}: {contact.number}
-//               </li>
-//             );
-//           })}
-//         </ul>
-//       </section>
-//     );
-//   }
-// }
-// export default ContactsList;
+ContactsList.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  deleteContact: PropTypes.func.isRequired,
+};
