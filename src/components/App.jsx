@@ -34,41 +34,49 @@ export class App extends Component {
     console.log(this.state.filter);
   };
 
+  // updateContacts = () => {
+  //   const filterWord = this.state.filter;
+  //   console.log(filterWord);
+  //   this.setState(prevState => ({
+  //     contacts: prevState.contacts.filter(({ contact: { name } }) =>
+  //       name.includes(filterWord)
+  //     ),
+  //   }));
+  // };
+
   render() {
     const contactsQuantity = this.state.contacts.length;
     console.log(contactsQuantity);
     const { filter } = this.state;
     return (
       <>
-        <p
+        <h1
           style={{
-            display: 'flex',
-            fontWeight: 'bold',
             margin: 15,
           }}
         >
           Phonebook
-        </p>
+        </h1>
         <Form options={this.state} onSubmit={this.formSubmitHandler} />
-        <p
+        <h2
           style={{
-            display: 'flex',
-            fontWeight: 'bold',
             margin: 15,
           }}
         >
           Contacts
-        </p>
+        </h2>
         <Filter value={filter} onChange={this.changeFilter} />
         {contactsQuantity > 0 ? (
           <ContactsList contacts={this.state.contacts} />
         ) : (
           <span
-            style={{
-              display: 'flex',
-              fontWeight: 'bold',
-              margin: 15,
-            }}
+            style={
+              {
+                // display: 'flex',
+                // fontWeight: 'bold',
+                // margin: 15,
+              }
+            }
           >
             There is no contacts yet
           </span>
