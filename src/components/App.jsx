@@ -16,15 +16,16 @@ export class App extends Component {
   state = { ...INITIAL_STATE };
 
   formSubmitHandler = data => {
-    const contactsName = this.state.contacts.map(el => el.name);
+    const isExist = this.state.contacts.find(contact => {
+      return data.name === contact.name;
+    });
+    if (isExist) {
+      return alert(`${data.name} is already in contacts.`);
+    }
 
-    contactsName.includes(data.name)
-      ? alert(`${data.name} is already in contacts.`)
-      : this.setState(prevState => ({
-          contacts: [...prevState.contacts, data],
-        }));
-    // console.log(data);
-    // this.setState(({ contacts }) => contacts.push(data));
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, data],
+    }));
   };
 
   changeFilter = e => {
