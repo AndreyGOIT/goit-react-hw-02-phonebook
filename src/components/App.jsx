@@ -11,8 +11,6 @@ const INITIAL_STATE = {
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ],
   filter: '',
-  name: '',
-  number: '',
 };
 export class App extends Component {
   state = { ...INITIAL_STATE };
@@ -34,20 +32,24 @@ export class App extends Component {
     console.log(this.state.filter);
   };
 
-  // updateContacts = () => {
-  //   const filterWord = this.state.filter;
-  //   console.log(filterWord);
-  //   this.setState(prevState => ({
-  //     contacts: prevState.contacts.filter(({ contact: { name } }) =>
-  //       name.includes(filterWord)
-  //     ),
-  //   }));
-  // };
+  updateContacts = () => {
+    const filterWord = this.state.filter.toLowerCase().trim();
+    return this.state.contacts.filter(({ name }) => {
+      return name.toLowerCase().includes(filterWord);
+    });
+  };
+
+  deleteContact = deleteId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(({ id }) => id !== deleteId),
+    }));
+  };
 
   render() {
     const contactsQuantity = this.state.contacts.length;
     console.log(contactsQuantity);
     const { filter } = this.state;
+    const visibleContacts = this.updateContacts();
     return (
       <>
         <h1
@@ -67,7 +69,10 @@ export class App extends Component {
         </h2>
         <Filter value={filter} onChange={this.changeFilter} />
         {contactsQuantity > 0 ? (
-          <ContactsList contacts={this.state.contacts} />
+          <ContactsList
+            contacts={visibleContacts}
+            deleteContact={this.deleteContact}
+          />
         ) : (
           <span
             style={
